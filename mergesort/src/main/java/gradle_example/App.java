@@ -8,17 +8,26 @@ import com.google.common.io.Resources;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 public class App {
     public String getGreeting() {
         try {
             URL url = Resources.getResource("test.txt");
             String text = Resources.toString(url, StandardCharsets.UTF_8);
-            System.out.println(text);
+            int[] numbers = Arrays.stream(text.split("\n"))
+                    .map(String::trim)
+                    .map(String::trim)
+                    .map(Integer::parseInt)
+                    .mapToInt(i -> i)
+                    .toArray();
+            var current = System.currentTimeMillis();
+            Mergesort.mergeSort(numbers);
+            System.out.println("Time: " + (System.currentTimeMillis() - current));
+            return Arrays.toString(numbers);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return "Hello World!";
     }
 
     public static void main(String[] args) {
