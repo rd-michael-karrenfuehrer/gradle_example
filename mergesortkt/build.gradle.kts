@@ -35,5 +35,5 @@ tasks.withType<KotlinCompile> {
 
 application {
     // Define the main class for the application.
-    mainClass.set("gradle_example.AppKt")
+    mainClass = "gradle_example_kotlin.AppKt"
 }

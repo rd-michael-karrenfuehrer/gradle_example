@@ -17,7 +17,6 @@ public class App {
             String text = Resources.toString(url, StandardCharsets.UTF_8);
             int[] numbers = Arrays.stream(text.split("\n"))
                     .map(String::trim)
-                    .map(String::trim)
                     .map(Integer::parseInt)
                     .mapToInt(i -> i)
                     .toArray();

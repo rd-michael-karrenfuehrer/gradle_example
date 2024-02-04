@@ -6,9 +6,9 @@ package gradle_example_kotlin
 import java.io.IOException
 
 class App {
-    val greeting: String
+    val runTest: String
         get() = try {
-           val text = App::class.java.getResource("/test.txt")!!.readText()
+            val text = App::class.java.getResource("/test.txt")!!.readText()
             val numbers =
                 text.split("\n")
                     .filter(String::isNotBlank)
@@ -23,10 +23,7 @@ class App {
             throw RuntimeException(e)
         }
 
-    companion object {
-        @JvmStatic
-        fun main(args: Array<String>) {
-            println(App().greeting)
-        }
-    }
+}
+fun main() {
+    println(App().runTest)
 }
